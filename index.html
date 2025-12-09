@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratap Boys Hostel - Premium Accommodation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: #2c3e50;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #667eea;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: 1rem;
+            background: #f8f9fa;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-box {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature-box h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .owner-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+        }
+
+        .owner-info h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+        }
+
+        .contact-item strong {
+            margin-right: 0.5rem;
+        }
+
+        .terms-list, .instruction-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .terms-list li, .instruction-list li {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+
+        .comment-form {
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .success-message {
+            display: none;
+            padding: 1rem;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🏠 Pratap Boys Hostel</h1>
+        <p>Your Home Away From Home</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#instructions">Instructions</a></li>
+            <li><a href="#terms">Terms & Conditions</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="home">
+            <h2>Welcome to Pratap Boys Hostel</h2>
+            <p>Pratap Boys Hostel offers premium accommodation for students and working professionals. Located in a prime location with easy access to educational institutions and commercial areas, we provide a safe, comfortable, and friendly environment for all residents.</p>
+            
+            <div class="features">
+                <div class="feature-box">
+                    <h3>🛏 Comfortable Rooms</h3>
+                    <p>Spacious rooms with modern furnishings and ample storage space</p>
+                </div>
+                
+                </div>
+                <div class="feature-box">
+                    <h3>📶 High-Speed WiFi</h3>
+                    <p>24/7 internet connectivity for your study and work needs</p>
+                </div>
+                <div class="feature-box">
+                    <h3>🔒 24/7 Security</h3>
+                    <p>CCTV surveillance and secure entry system</p>
+                </div>
+                  
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Hostel Gallery</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/2Qnij9V.jpeg" alt="Hostel Image">
+
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/WMLzqU2.jpeg" alt="Hostel Image">
+                 
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/7U7XpnF.jpeg" alt="Hostel Image">
+                    
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/qJVcNUI.jpeg" alt="Hostel Image">
+                    
+                
+                </div>
+            </div>
+        </section>
+
+        <section id="instructions">
+            <h2>Hostel Instructions</h2>
+            <ul class="instruction-list">
+                <li>✓ Visitors are allowed only in the common area between 9:00 AM to 8:00 PM</li>
+                <li>✓ Keep your room clean and organized. Regular room inspections will be conducted</li>
+                <li>✓ Use of electrical appliances like heaters, induction cookers is strictly prohibited in rooms</li>
+                <li>✓ Smoking, alcohol, and drug consumption is strictly prohibited</li>
+                <li>✓ Respect other residents' privacy and maintain silence after 11:00 PM</li>
+                <li>✓ Report any maintenance issues immediately to the hostel administrator</li>
+                <li>✓ Participate in hostel cleaning duties as per the roster</li>
+                <li>✓ Rent must be paid timely </li>
+                <li>✓ Any damage to hostel property will be charged from that student</li>
+            </ul>
+        </section>
+
+        <section id="terms">
+            <h2>Terms & Conditions</h2>
+            <ul class="terms-list"></ul>
+                <li><strong>1. Noise:</strong> No loud music, shouting, or disturbances, especially during study hours.</li>
+                <li><strong>2. Cleanness:</strong> Keep your room neat and tidy; responsible for its condition.</li>
+                <li><strong>3. Damage:</strong> Fines apply for damage to furniture or hostel property.</li>
+                <li><strong>4. Notice Period:</strong> Residents must give 30 days prior notice before vacating the hostel. Failure to do so will result in forfeiture of security deposit.</li>
+                <li><strong>5. Personal Belongings:</strong> The hostel management is not responsible for any loss or theft of personal belongings. Residents are advised to keep their valuables safe.</li>
+                <li><strong>6. Behavior:</strong> Any misconduct, violence, or indiscipline will lead to immediate termination without refund.</li>
+                <li><strong>7. Room Allocation:</strong> Room changes are subject to availability and management approval. Sharing rooms cannot be changed without permission.</li>
+                <li><strong>8. Hostel Property:</strong> Any damage to hostel furniture, fixtures, or property will be charged to the resident responsible.</li>
+                <li><strong>9. Rules Modification:</strong> The hostel management reserves the right to modify rules and regulations as necessary with prior notice to all residents.</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Owner Details</h2>
+            <div class="owner-info">
+                <h3>Mr. Pratp Singh</h3>
+                <p>Owner & Manager - Pratap Boys Hostel</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <strong>📞 Phone:</strong> +91 82901 09888
+                    </div>
+                    <div class="contact-item">
+                        <strong>📧 Email:</strong>  psrs1983@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <strong>📱 WhatsApp:</strong> +91 82901 09888
+                    </div>
+                    <div class="contact-item">
+                        <strong>📍 Address:</strong> NH-19 Mathura, Near GLA University ,281406
+                                                              
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="feedback">
+            <h2>Send Us Your Feedback</h2>
+            <p>We value your feedback and suggestions. Please share your experience with us.</p>
+            
+            <form class="comment-form" id="feedbackForm">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Feedback</button>
+                
+                <div class="success-message" id="successMessage">
+                    ✓ Thank you for your feedback! We'll get back to you soon.
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Royal Boys Hostel. All rights reserved.</p>
+        <p>Providing quality accommodation since 2015</p>
+    </footer>
+
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            const subject = encodeURIComponent('Feedback from ' + name);
+            const body = encodeURIComponent(
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n' +
+                'Phone: ' + phone + '\n\n' +
+                'Message:\n' + message
+            );
+            
+            const mailtoLink = 'mailto:info@royalboyshotel.com?subject=' + subject + '&body=' + body;
+            
+            window.location.href = mailtoLink;
+            
+            document.getElementById('successMessage').style.display = 'block';
+            
+            setTimeout(function() {
+                document.getElementById('feedbackForm').reset();
+                document.getElementById('successMessage').style.display = 'none';
+            }, 3000);
+        });
+
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
